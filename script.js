@@ -1,9 +1,4 @@
-// async function getUsers(){
-//     const res = await fetch("http://localhost:3001/users")
-//     const resJson = await res.json()
-//     console.log(resJson)
-// }
-// getUsers()
+
 import {toastify} from "./toastify.js"
 const myHeaders = {
     "Content-Type": "application/json", 
@@ -50,11 +45,7 @@ async function login(){
             btnLogin.innerHTML = ""
         btnLogin.innerText= "Logar"
         
-        // if(resJson.accessToken){
-    
-        // }
-        // window.location.replace("./cadastro")
-    
+   
     
 }
 
@@ -63,4 +54,5 @@ form.addEventListener("submit",(event)=>{
     event.preventDefault()
     login()
 })
+
 
