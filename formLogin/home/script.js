@@ -9,7 +9,7 @@
             alert('Produtos');
         }
         function showVendas() {
-            // Implemente a lógica para exibir as vendas
+            // Implemente a lógica para exibir as vendas.
             alert('Vendas');
         }
  

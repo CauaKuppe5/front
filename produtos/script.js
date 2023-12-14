@@ -1,3 +1,7 @@
+const myHeaders = {
+    "Content-Type": "application/json", 
+  };
+
 document.addEventListener("DOMContentLoaded", function() {
     // Produto inicial
     const initialProduct = {
@@ -5,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         precoCusto: 3,
         precoVenda: 8
     };
+
 
     // Inicializar lista com o produto inicial
     addProductToList(initialProduct);
@@ -17,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-function addProduct() {
+async function addProduct() {
     // Obter valores do formulário
     const productName = document.getElementById("productName").value;
     const productCostPrice = parseFloat(document.getElementById("productCostPrice").value);
@@ -35,7 +40,18 @@ function addProduct() {
         precoCusto: productCostPrice,
         precoVenda: productSellingPrice
     };
-
+    const bodyJson = JSON.stringify(newProduct)
+    const res = await fetch(
+        "http://localhost:3001/produtos",
+    { 
+        
+        headers:myHeaders, 
+        method:"POST",
+        body:bodyJson
+    }
+        )
+    const resposta = await res.json()
+    console.log(resposta)
     // Adicionar produto à lista
     addProductToList(newProduct);
 
